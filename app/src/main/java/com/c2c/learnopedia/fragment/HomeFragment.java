@@ -1,7 +1,6 @@
-package info.androidhive.navigationdrawer.fragment;
+package com.c2c.learnopedia.fragment;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -17,9 +16,9 @@ import android.widget.GridView;
 import java.util.ArrayList;
 
 import info.androidhive.navigationdrawer.R;
-import info.androidhive.navigationdrawer.activity.MainActivity;
-import info.androidhive.navigationdrawer.other.GridViewAdapter;
-import info.androidhive.navigationdrawer.other.ImageItem;
+
+import com.c2c.learnopedia.other.GridViewAdapter;
+import com.c2c.learnopedia.other.ImageItem;
 
 /**
  * A simple {@link Fragment} subclass.

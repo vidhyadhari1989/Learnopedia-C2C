@@ -1,4 +1,4 @@
-package info.androidhive.navigationdrawer.fragment;
+package com.c2c.learnopedia.fragment;
 
 import android.content.Context;
 import android.net.Uri;

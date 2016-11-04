@@ -1,4 +1,4 @@
-package info.androidhive.navigationdrawer.other;
+package com.c2c.learnopedia.other;
 
 import android.app.Activity;
 import android.content.Context;

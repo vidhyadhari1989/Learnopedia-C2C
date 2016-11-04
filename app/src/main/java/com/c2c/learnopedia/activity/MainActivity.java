@@ -1,11 +1,9 @@
-package info.androidhive.navigationdrawer.activity;
+package com.c2c.learnopedia.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -16,20 +14,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-
 import info.androidhive.navigationdrawer.R;
-import info.androidhive.navigationdrawer.fragment.HomeFragment;
-import info.androidhive.navigationdrawer.fragment.MoviesFragment;
-import info.androidhive.navigationdrawer.fragment.NotificationsFragment;
-import info.androidhive.navigationdrawer.fragment.PhotosFragment;
-import info.androidhive.navigationdrawer.fragment.SettingsFragment;
-import info.androidhive.navigationdrawer.other.CircleTransform;
+import com.c2c.learnopedia.fragment.HomeFragment;
+import com.c2c.learnopedia.fragment.MoviesFragment;
+import com.c2c.learnopedia.fragment.NotificationsFragment;
+import com.c2c.learnopedia.fragment.PhotosFragment;
+import com.c2c.learnopedia.fragment.SettingsFragment;
 
 public class MainActivity extends AppCompatActivity {
 
