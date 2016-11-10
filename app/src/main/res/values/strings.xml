@@ -31,24 +31,129 @@
     <string name="privacy_policy">Privacy Policy</string>
 
     <string-array name="image_ids">
-        <item>@drawable/gm_doctor</item>
-        <item>@drawable/gm_doctor</item>
-        <item>@drawable/gm_doctor</item>
-        <item>@drawable/gm_doctor</item>
-        <item>@drawable/gm_doctor</item>
-        <item>@drawable/gm_doctor</item>
-        <item>@drawable/gm_doctor</item>
-        <item>@drawable/gm_doctor</item>
-        <item>@drawable/gm_doctor</item>
-        <item>@drawable/gm_doctor</item>
-        <item>@drawable/gm_doctor</item>
-        <item>@drawable/gm_doctor</item>
-        <item>@drawable/gm_doctor</item>
-        <item>@drawable/gm_doctor</item>
-        <item>@drawable/gm_doctor</item>
-        <item>@drawable/gm_doctor</item>
-        <item>@drawable/gm_doctor</item>
-        <item>@drawable/gm_doctor</item>
+        <item>@drawable/course1</item>
+        <item>@drawable/course1</item>
+        <item>@drawable/course1</item>
+        <item>@drawable/course1</item>
+        <item>@drawable/course1</item>
+        <item>@drawable/course1</item>
+        <item>@drawable/course1</item>
+        <item>@drawable/course1</item>
+        <item>@drawable/course1</item>
+        <item>@drawable/course1</item>
+        <item>@drawable/course1</item>
+        <item>@drawable/course1</item>
+        <item>@drawable/course1</item>
+        <item>@drawable/course1</item>
+        <item>@drawable/course1</item>
+        <item>@drawable/course1</item>
+        <item>@drawable/course1</item>
+        <item>@drawable/course1</item>
     </string-array>
+
+
+    <!--Kalyani codes-->
+
+    <string name="enter_email">Email</string>
+    <string name="password">Password</string>
+    <string name="enter_phone_number">Enter phone number</string>
+    <string name="sign_in">Sign in</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="needhelp">Need help? </string>
+    <string name="please_enter_name">Please enter name </string>
+    <string name="please_enter_valid_email">Please enter valied email id </string>
+    <string name="please_enter_valid_number">Please enter valid number </string>
+    <string name="please_enter_valid_otp">Please enter valid OTP </string>
+    <string name="please_wait">Please wait..</string>
+    <string name="please_check_internet_connection">Internet is not available..!</string>
+
+
+    <string name="enter_phone_no">Mobile Number</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="enter_first_name">First Name</string>
+    <string name="enter_last_name">Enter last Name</string>
+    <string name="please_select_gender">Select Gender</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="take_selfi">   Take Selfie</string>
+    <string name="submit">Submit</string>
+
+    <string name="existing_user">Already have Acount? Login</string>
+
+    <string name="action_log_out">Log out</string>
+    <string name="login_as">Login as</string>
+    <string name="logged_in_as">Logged In as</string>
+
+
+    <string name="hint.text.mobile">Mobile Number</string>
+    <string name="btn_audio_call">AUDIO CALL</string>
+    <string name="btn_video_call">VIDEO CALL</string>
+    <string name="opponentsListActionBarTitle"><![CDATA[Video & Audio Group Chat Sample]]></string>
+    <string name="current_version">0.9.1</string>
+    <string name="rejected">Rejected</string>
+    <string name="noAnswer">No answer</string>
+    <string name="hungUp">Hung up</string>
+    <string name="closed">Closed</string>
+    <string name="time_out">Time Out</string>
+    <string name="failed">Failed</string>
+    <string name="WIFI_DISABLED">Call was stoped because connection was lost</string>
+    <string name="NETWORK_ABSENT">Connection lost</string>
+    <string name="show.label.newUserSignUp">New User ? Register</string>
+
+
+    <!---->
+
+    <string name="verify_otp">VERIFY OTP</string>
+    <string name="please_enter_valid_phone_number">Please enter valid phone number</string>
+    <string name="verify">VERIFY</string>
+    <string name="resend">RESEND</string>
+    <string name="enter_opt">Enter OTP</string>
+    <string name="opt_user_hint">OTP send to  \n Enter the OTP below in if you fail to detect the SMS automatically.</string>
+    <string name="user_register_hint">Enter your details to get started </string>
+
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="mobile">Mobile</string>
+
+    <string name="next">NEXT</string>
+    <string name="enter_the_patient_details_to_get_started">Enter the patient details to get started!</string>
+    <string name="last_name">Last Name</string>
+    <string name="_91">+91</string>
+    <string name="title_activity_landing_home">LandingHomeActivity</string>
+
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="reviews">Reviews</string>
+    <string name="chat">Chat</string>
+    <string name="call">Call</string>
+    <string name="live_streaming">Live\nStreaming</string>
+    <string name="enroll">Enroll</string>
+    <string name="write_post">Write Post</string>
+    <string name="recent_posts">Recent Posts</string>
+    <string name="read_more">Read More>></string>
+    <string name="comment">1 Comment</string>
+    <string name="write_comment">Write acomment</string>
+    <string name="send">Send</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_register">Register</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">MOBILE NUMBER</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Login</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This mobile number is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
 
 </resources>

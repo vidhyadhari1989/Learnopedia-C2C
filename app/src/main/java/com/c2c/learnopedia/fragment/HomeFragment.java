@@ -1,157 +1,157 @@
 package com.c2c.learnopedia.fragment;
 
-import android.content.Context;
-import android.content.res.TypedArray;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
+import android.widget.Toast;
+
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.c2c.learnopedia.model.Subject;
+import com.c2c.learnopedia.other.AppConstance;
+import com.c2c.learnopedia.other.GridViewAdapter;
+import com.c2c.learnopedia.other.UrlUtils;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import info.androidhive.navigationdrawer.R;
 
-import com.c2c.learnopedia.other.GridViewAdapter;
-import com.c2c.learnopedia.other.ImageItem;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link HomeFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link HomeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class HomeFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+public class HomeFragment extends Fragment  {
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    private OnFragmentInteractionListener mListener;
-
-    GridView subject_gridView;
+    private GridView subject_gridView;
     private GridViewAdapter gridAdapter;
+    Button entroll;
+   ArrayList<Subject> mSubjectData =new ArrayList<>();
 
-    public HomeFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View subjectFragment = inflater.inflate(R.layout.fragment_home, container, false);
+        initView(subjectFragment);
+        return subjectFragment;
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-
-        View v = inflater.inflate(R.layout.fragment_home, container, false);
-        subject_gridView = (GridView)v.findViewById(R.id.subject_gridView);
-
-        gridAdapter = new GridViewAdapter(getActivity(), R.layout.grid_item_layout, getData());
+    private void initView(View view) {
+        subject_gridView = (GridView) view.findViewById(R.id.subject_gridView);
+        gridAdapter = new GridViewAdapter(getActivity(),mSubjectData);
+        gridAdapter.notifyDataSetChanged();
         subject_gridView.setAdapter(gridAdapter);
+//        subject_gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+//              //  Subject item = (Subject) parent.getItemAtPosition(position);
+//                Intent intent = new Intent();
+//                intent.setClass(getActivity(), ListOfCoursesActivity.class);
+//                getActivity().startActivity(intent);
+////                Intent i=new Intent(getActivity(),ListOfCoursesActivity.class);
+////                startActivity(i);
+//
+//                Toast.makeText(getActivity(),"selected", Toast.LENGTH_SHORT).show();
+//
+//            }
+//        });
+//
 
-        subject_gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                ImageItem item = (ImageItem) parent.getItemAtPosition(position);
-
-              /*  //Create intent
-               Intent intent = new Intent(getActivity(), DetailsActivity.class);
-                intent.putExtra("title", item.getTitle());
-                intent.putExtra("image", item.getImage());
-
-                //Start details activity
-                startActivity(intent);*/
-            }
-        });
-        return v;
-
-//        return inflater.inflate(R.layout.fragment_home, container, false);
+        getAllSubjects();
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
+    private void getAllSubjects() {
+        final ProgressDialog loading = ProgressDialog.show(getActivity(), "", "Please wait..", false, false);
+        HashMap<String, String> params = new HashMap<String, String>();
+        JSONObject jsonObject = new JSONObject(params);
+        Log.v(AppConstance.TAG, "Request String:" + jsonObject.toString());
+        Log.v(AppConstance.TAG, "Requesting String in SignUp :" + UrlUtils.Get_All_Subjects);
+        JsonObjectRequest req = new JsonObjectRequest(Request.Method.GET, UrlUtils.Get_All_Subjects, jsonObject,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        loading.dismiss();
+                        Log.v("TAG", "register user " + response);
+                        try {
+                            Log.v(AppConstance.TAG, "Response:" + response.toString());
+                            if (response != null) {
+
+                                   JSONArray jsonArray=response.getJSONArray("ChapterRecordView");
+                                    for (int i = 0 ;i<jsonArray.length();i++)
+                                    {
+                                        JSONObject jsonObjectsub=jsonArray.getJSONObject(i);
+                                        Subject subject=new Subject();
+                                        subject.setSubjectID(jsonObjectsub.getString("SubjectID"));
+                                        subject.setSubjectName(jsonObjectsub.getString("SubjectName"));
+                                        subject.setImage(jsonObjectsub.getString("Image"));
+                                        mSubjectData.add(subject);
+
+                                        Log.v("minnusubject","allsubjects"+mSubjectData);
+                                        Log.v("minnusubject","allsubjects"+jsonObjectsub.getString("SubjectID"));
+                                        Log.v("minnusubject","allsubjects"+jsonObjectsub.getString("Image"));
+                                }
+                                if (response.getString("responseId").equalsIgnoreCase("0")) {
+                                    Toast.makeText(getActivity(), "" + response.getString("responseText"), Toast.LENGTH_LONG).show();
+
+                                }
+
+
+                            } else {
+                                Toast.makeText(getActivity(), "doesn't get the subjects ", Toast.LENGTH_LONG).show();
+
+                                if (loading != null)
+                                    loading.dismiss();
+
+                            }
+
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            loading.dismiss();
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // error
+                        try {
+                            Log.d("Error.Response", error.getMessage());
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            loading.dismiss();
+                        }
+
+                    }
+                }
+        );
+        RetryPolicy policy = new DefaultRetryPolicy(AppConstance.SPLASH_DISPLAY_TIME, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        req.setRetryPolicy(policy);
+        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+        requestQueue.add(req);
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-//        if (context instanceof OnFragmentInteractionListener) {
-//            mListener = (OnFragmentInteractionListener) context;
-//        } else {
-//            throw new RuntimeException(context.toString()
-//                    + " must implement OnFragmentInteractionListener");
-//        }
-    }
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
-
-    /**
-     * Prepare some dummy data for gridview
-     */
-    private ArrayList<ImageItem> getData() {
-        final ArrayList<ImageItem> imageItems = new ArrayList<>();
-        TypedArray imgs = getResources().obtainTypedArray(R.array.image_ids);
-        for (int i = 0; i < imgs.length(); i++) {
-            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), imgs.getResourceId(i, -1));
-            imageItems.add(new ImageItem(bitmap, "Image#" + i));
-        }
-        return imageItems;
-    }
+//    private ArrayList<Subject> getData() {
+//        final ArrayList<Subject> subjectItems = new ArrayList<>();
+//        TypedArray imgs = getResources().obtainTypedArray(R.array.image_ids);
+////        for (int i = 0; i < imgs.length(); i++) {
+////            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), imgs.getResourceId(i, -1));
+////            subjectItems.add(new Subject(bitmap, "Subject" + i));
+////        }
+//        return subjectItems;
+//    }
 }

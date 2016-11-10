@@ -5,4 +5,5 @@ package com.c2c.learnopedia.other;
  */
 public class AppConstance {
   public static int  SPLASH_DISPLAY_TIME = 3000 ;
+  public static String TAG ="Learnopedia";
 }

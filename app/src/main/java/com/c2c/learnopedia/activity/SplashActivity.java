@@ -24,7 +24,7 @@ public class SplashActivity extends AppCompatActivity {
 
 //                                          if (SharedPreferenceManager.isLoggedIn(SplashActivity.this))
 //                                          {
-                                              intent=new Intent(SplashActivity.this,MainActivity.class);
+                                              intent=new Intent(SplashActivity.this,LoginActivity.class);
                                              // intent=new Intent(SplashActivity.this,HomeActivity.class);
                                               startActivity(intent);
                                               finish();

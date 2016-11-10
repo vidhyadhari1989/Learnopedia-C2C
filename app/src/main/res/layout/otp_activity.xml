@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:id="@+id/toolbar_ll"-->
+        <!--android:orientation="vertical"-->
+        <!--android:layout_height="wrap_content">-->
+        <!--<include layout="@layout/app_tool_bar"></include>-->
+
+    <!--</LinearLayout>-->
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:background="@drawable/layout_boarder"
+            android:layout_margin="@dimen/Login_layout_margin"
+            android:padding="@dimen/layout_inner_padding"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_margin="10dp"
+
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:src="@drawable/click2cliniclogo"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_height="80dp" />
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="@string/opt_user_hint"
+                android:padding="@dimen/button_padding"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="12sp"
+                android:id="@+id/mobile_number_hint"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:layout_width="match_parent"
+                android:background="@color/mainbg_color"
+                android:layout_height="1dp"></View>
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:id="@+id/verifty_opt_et"
+                android:padding="20dp"
+                android:gravity="center"
+                android:singleLine="true"
+                android:hint="@string/enter_opt"
+                android:maxLength="4"
+                android:inputType="number"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:text="@string/resend"
+                    android:layout_weight="1"
+                    android:id="@+id/resend_otp_btn"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/custom_button_seletor"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:text="@string/verify"
+                    android:layout_weight="1"
+                    android:padding="@dimen/button_padding"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_margin="@dimen/Login_layout_margin"
+                    android:id="@+id/verify_otp_btn"
+                    android:background="@drawable/custom_button_seletor"
+
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+
+</LinearLayout>
+
+

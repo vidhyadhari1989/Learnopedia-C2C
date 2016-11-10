@@ -7,4 +7,29 @@
     <color name="colorPrimaryDark">#c72c2c</color>
     <color name="colorAccent">#FFFFFF</color>
 
+
+
+    <color name="mainbg_color">#FFC1BDBF</color>
+    <color name="content_bg_color">#FFFFFF</color>
+    <color name="text_color">#FFFFFF</color>
+
+    <color name="login_header_text_color">#000000</color>
+
+    <color name="button_pressed_yellow">#ffa200</color>
+    <color name="button_focused_orange">#fcf54104</color>
+    <color name="button_normal_balck">#ad050505</color>
+    <color name="cardview_dark_background">#FF424242</color>
+    <color name="send_button_narmar">#10a752</color>
+
+    <!--login-->
+
+    <color name="header_profile_color">#c8000000</color>
+
+    <color name="login_btn_color">#2d7d98</color>
+    <color name="sign_up_btn_color">#f3213a</color>
+    <color name="radio_color_code">#ff4081</color>
+    <color name="existing_user">#3f51b5</color>
+    
+
+
 </resources>

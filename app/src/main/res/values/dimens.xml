@@ -9,4 +9,28 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="profile_width">75dp</dimen>
     <dimen name="profile_height">75dp</dimen>
+
+
+    <dimen name="text_size_normal">15sp</dimen>
+
+    <dimen name="button_text_size_normal">14sp</dimen>
+
+    <dimen name="text_size_small">12sp</dimen>
+
+    <dimen name="text_size_large">18sp</dimen>
+
+    <dimen name="activity_margin">10dp</dimen>
+
+
+    <dimen name="Login_layout_margin">20dp</dimen>
+    <dimen name="layout_inner_padding">10sp</dimen>
+    <dimen name="Login_padding">10dp</dimen>
+    <dimen name="textview_padding">10dp</dimen>
+    <dimen name="textview_margin">10dp</dimen>
+    <dimen name="button_padding">10dp</dimen>
+    <dimen name="button_margin">10dp</dimen>
+    <dimen name="edit_text_padding">10dp</dimen>
+    <dimen name="edit_text_margin">5dp</dimen>
+    <dimen name="login_title_text_size">20dp</dimen>
+
 </resources>
