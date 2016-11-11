@@ -117,7 +117,7 @@
                     android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ._@1234567890 "
                     android:hint="@string/email"
                     android:maxLength="40"
-                    android:inputType="text"
+                    android:inputType="textEmailAddress"
                     android:layout_marginTop="@dimen/edit_text_margin"
 
                     android:maxLines="1"

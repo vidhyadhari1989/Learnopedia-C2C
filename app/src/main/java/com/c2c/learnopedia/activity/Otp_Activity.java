@@ -72,16 +72,22 @@ public class Otp_Activity extends Activity {
         progressDialog.setMessage("Please wait..");
         progressDialog.show();
 
+       /* {
+            "MobileNum": "string",
+                "OTP": "string",
+                "DeviceregId": "string"
+        }
+*/
         HashMap<String, String> params = new HashMap<String, String>();
-        params.put("strMobile", mobileNo);
-        params.put("strOTP",otp );
-        params.put("deviceregid",deviceregid);
+        params.put("MobileNum", mobileNo);
+        params.put("OTP",otp );
+        params.put("DeviceregId",deviceregid);
 
         JSONObject jsonObject = new JSONObject(params);
         Log.v(AppConstance.TAG, "Request String:" + jsonObject.toString());
-        Log.v(AppConstance.TAG, "Requesting String in SignUp :" + UrlUtils.GetVerify_mobile+"/"+mobileNo+"/"+otp+"/"+deviceregid);
+        Log.v(AppConstance.TAG, "Requesting String in SignUp :" + UrlUtils.GetVerify_mobile);
         RequestQueue queue = Volley.newRequestQueue(this);
-        JsonObjectRequest req = new JsonObjectRequest(Request.Method.POST, UrlUtils.GetVerify_mobile+"/"+mobileNo+"/"+otp+"/"+deviceregid, jsonObject,
+        JsonObjectRequest req = new JsonObjectRequest(Request.Method.POST, UrlUtils.GetVerify_mobile, jsonObject,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {

@@ -16,7 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.c2c.learnopedia.fragment.HomeFragment;
+import com.c2c.learnopedia.fragment.SubjectsFragment;
 import com.c2c.learnopedia.fragment.MoviesFragment;
 import com.c2c.learnopedia.fragment.NotificationsFragment;
 import com.c2c.learnopedia.fragment.PhotosFragment;
@@ -148,8 +148,8 @@ public class MainActivity extends AppCompatActivity {
         switch (navItemIndex) {
             case 0:
                 // home
-                HomeFragment homeFragment = new HomeFragment();
-                return homeFragment;
+                SubjectsFragment subjectsFragment = new SubjectsFragment();
+                return subjectsFragment;
             case 1:
                 // photos
                 PhotosFragment photosFragment = new PhotosFragment();
@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
                 SettingsFragment settingsFragment = new SettingsFragment();
                 return settingsFragment;
             default:
-                return new HomeFragment();
+                return new SubjectsFragment();
         }
     }
 

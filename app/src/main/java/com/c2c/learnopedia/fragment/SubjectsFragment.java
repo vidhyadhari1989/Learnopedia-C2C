@@ -33,7 +33,7 @@ import java.util.HashMap;
 import info.androidhive.navigationdrawer.R;
 
 
-public class HomeFragment extends Fragment  {
+public class SubjectsFragment extends Fragment  {
 
     private GridView subject_gridView;
     private GridViewAdapter gridAdapter;
@@ -50,6 +50,7 @@ public class HomeFragment extends Fragment  {
 
     private void initView(View view) {
         subject_gridView = (GridView) view.findViewById(R.id.subject_gridView);
+
         gridAdapter = new GridViewAdapter(getActivity(),mSubjectData);
         gridAdapter.notifyDataSetChanged();
         subject_gridView.setAdapter(gridAdapter);
@@ -96,6 +97,8 @@ public class HomeFragment extends Fragment  {
                                         subject.setSubjectName(jsonObjectsub.getString("SubjectName"));
                                         subject.setImage(jsonObjectsub.getString("Image"));
                                         mSubjectData.add(subject);
+
+
 
                                         Log.v("minnusubject","allsubjects"+mSubjectData);
                                         Log.v("minnusubject","allsubjects"+jsonObjectsub.getString("SubjectID"));

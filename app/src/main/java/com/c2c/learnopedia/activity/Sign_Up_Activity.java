@@ -3,6 +3,7 @@ package com.c2c.learnopedia.activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -74,7 +75,8 @@ public class Sign_Up_Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent login=new Intent(Sign_Up_Activity.this,LoginActivity.class);
+                Intent login = new Intent(Sign_Up_Activity.this, LoginActivity.class);
+                login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(login);
             }
         });
@@ -247,7 +249,16 @@ public class Sign_Up_Activity extends AppCompatActivity {
         requestQueue.add(req);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        Intent login = new Intent(Sign_Up_Activity.this, LoginActivity.class);
+        login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(login);
+
     }
+}
 
 
 
