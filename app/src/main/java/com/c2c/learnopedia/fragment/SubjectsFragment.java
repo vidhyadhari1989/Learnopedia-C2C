@@ -38,7 +38,7 @@ public class SubjectsFragment extends Fragment  {
     private GridView subject_gridView;
     private GridViewAdapter gridAdapter;
     Button entroll;
-   ArrayList<Subject> mSubjectData =new ArrayList<>();
+    ArrayList<Subject> mSubjectData =new ArrayList<>();
 
 
     @Override
@@ -70,6 +70,10 @@ public class SubjectsFragment extends Fragment  {
 //
 
         getAllSubjects();
+
+        gridAdapter.notifyDataSetChanged();
+        subject_gridView.setAdapter(gridAdapter);
+
     }
 
     private void getAllSubjects() {
@@ -88,27 +92,28 @@ public class SubjectsFragment extends Fragment  {
                             Log.v(AppConstance.TAG, "Response:" + response.toString());
                             if (response != null) {
 
-                                   JSONArray jsonArray=response.getJSONArray("ChapterRecordView");
-                                    for (int i = 0 ;i<jsonArray.length();i++)
-                                    {
-                                        JSONObject jsonObjectsub=jsonArray.getJSONObject(i);
-                                        Subject subject=new Subject();
-                                        subject.setSubjectID(jsonObjectsub.getString("SubjectID"));
-                                        subject.setSubjectName(jsonObjectsub.getString("SubjectName"));
-                                        subject.setImage(jsonObjectsub.getString("Image"));
-                                        mSubjectData.add(subject);
+                                JSONArray jsonArray=response.getJSONArray("ChapterRecordView");
+                                for (int i = 0 ;i<jsonArray.length();i++)
+                                {
+                                    JSONObject jsonObjectsub=jsonArray.getJSONObject(i);
+                                    Subject subject=new Subject();
+                                    subject.setSubjectID(jsonObjectsub.getString("SubjectID"));
+                                    subject.setSubjectCode(jsonObjectsub.getString("SubjectCode"));
+                                    subject.setSubjectName(jsonObjectsub.getString("SubjectName"));
+                                    subject.setImage(jsonObjectsub.getString("Image"));
+                                    mSubjectData.add(subject);
 
-
-
-                                        Log.v("minnusubject","allsubjects"+mSubjectData);
-                                        Log.v("minnusubject","allsubjects"+jsonObjectsub.getString("SubjectID"));
-                                        Log.v("minnusubject","allsubjects"+jsonObjectsub.getString("Image"));
+                                    Log.v("minnusubject","allsubjects"+mSubjectData);
+                                    Log.v("minnusubject","allsubjects"+jsonObjectsub.getString("SubjectID"));
+                                    Log.v("minnusubject","allsubjects"+jsonObjectsub.getString("Image"));
                                 }
-                                if (response.getString("responseId").equalsIgnoreCase("0")) {
+                              /*  if (response.getString("responseId").equalsIgnoreCase("0")) {
                                     Toast.makeText(getActivity(), "" + response.getString("responseText"), Toast.LENGTH_LONG).show();
 
-                                }
+                                }*/
 
+                                gridAdapter.notifyDataSetChanged();
+                                subject_gridView.setAdapter(gridAdapter);
 
                             } else {
                                 Toast.makeText(getActivity(), "doesn't get the subjects ", Toast.LENGTH_LONG).show();
@@ -146,15 +151,4 @@ public class SubjectsFragment extends Fragment  {
         requestQueue.add(req);
     }
 
-
-
-//    private ArrayList<Subject> getData() {
-//        final ArrayList<Subject> subjectItems = new ArrayList<>();
-//        TypedArray imgs = getResources().obtainTypedArray(R.array.image_ids);
-////        for (int i = 0; i < imgs.length(); i++) {
-////            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), imgs.getResourceId(i, -1));
-////            subjectItems.add(new Subject(bitmap, "Subject" + i));
-////        }
-//        return subjectItems;
-//    }
 }
