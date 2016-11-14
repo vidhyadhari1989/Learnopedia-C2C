@@ -1,12 +1,14 @@
 package com.c2c.learnopedia.fragment;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.Toast;
@@ -19,6 +21,7 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.c2c.learnopedia.activity.ListOfCoursesActivity;
 import com.c2c.learnopedia.model.Subject;
 import com.c2c.learnopedia.other.AppConstance;
 import com.c2c.learnopedia.other.GridViewAdapter;
@@ -54,20 +57,22 @@ public class SubjectsFragment extends Fragment  {
         gridAdapter = new GridViewAdapter(getActivity(),mSubjectData);
         gridAdapter.notifyDataSetChanged();
         subject_gridView.setAdapter(gridAdapter);
-//        subject_gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-//              //  Subject item = (Subject) parent.getItemAtPosition(position);
-//                Intent intent = new Intent();
-//                intent.setClass(getActivity(), ListOfCoursesActivity.class);
-//                getActivity().startActivity(intent);
-////                Intent i=new Intent(getActivity(),ListOfCoursesActivity.class);
-////                startActivity(i);
-//
-//                Toast.makeText(getActivity(),"selected", Toast.LENGTH_SHORT).show();
-//
-//            }
-//        });
-//
+
+
+        subject_gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+              //  Subject item = (Subject) parent.getItemAtPosition(position);
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), ListOfCoursesActivity.class);
+                getActivity().startActivity(intent);
+//                Intent i=new Intent(getActivity(),ListOfCoursesActivity.class);
+//                startActivity(i);
+
+                Toast.makeText(getActivity(),"selected", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
 
         getAllSubjects();
 
