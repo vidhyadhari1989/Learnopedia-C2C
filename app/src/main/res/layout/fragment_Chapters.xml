@@ -1,0 +1,145 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.c2c.learnopedia.fragment.PhotosFragment">
+
+    <WebView android:id="@+id/webview_frame"
+        android:layout_width="match_parent"
+        android:layout_height="180dp">
+
+    </WebView>
+
+    <TextView style="@style/TextAppearance.AppCompat.Large"
+        android:id="@+id/tv_course_video_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/webview_frame"
+        android:padding="10dp"
+        android:text="@string/course_name"/>
+
+    <TextView
+        android:id="@+id/tv_course_history"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_course_video_name"
+        android:padding="5dp"
+        android:text="@string/history_course"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/tv_course_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_course_history"
+        android:text="@string/course_details"
+        android:paddingLeft="5dp"
+        android:textSize="18sp"/>
+
+    <LinearLayout
+
+        android:id="@+id/lay_buttons"
+        android:layout_below="@+id/tv_course_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <Button android:textSize="12sp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reviews_course"/>
+        <Button android:layout_weight="1"
+            android:textSize="12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chat_course"/>
+        <Button android:layout_weight="1"
+            android:textSize="11sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/healthcall_course"/>
+        <Button android:layout_weight="1"
+            android:textSize="11sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/live_streaming_course"/>
+
+    </LinearLayout>
+
+    <View android:layout_below="@+id/lay_buttons"
+        android:background="@color/mainbg_color"
+        android:layout_width="match_parent"
+        android:id="@+id/view_line1"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp">
+
+    </View>
+
+    <Button android:layout_below="@+id/view_line1"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        style="?android:textAppearanceSmall"
+        android:text="Entroll"
+        android:background="@color/login_btn_color"
+        android:textColor="@color/white"
+        android:id="@+id/entroll_chapter"
+        android:layout_margin="10dp"
+        />
+
+    <View android:layout_below="@+id/entroll_chapter"
+        android:background="@color/mainbg_color"
+        android:layout_width="match_parent"
+        android:id="@+id/view_line2"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp">
+
+    </View>
+
+    <LinearLayout android:id="@+id/lay_author_details"
+        android:layout_below="@+id/view_line2"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView android:padding="10dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/author_name_img"/>
+
+        <LinearLayout android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content">
+
+            <TextView style="@style/TextAppearance.AppCompat.Large"
+                android:id="@+id/tv_author_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/webview_frame"
+                android:padding="10dp"
+                android:text="@string/course_name"/>
+
+            <TextView style="@style/TextAppearance.AppCompat.Small"
+                android:id="@+id/tv_author_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/webview_frame"
+                android:paddingLeft="10dp"
+                android:text="@string/course_name"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <Button android:layout_below="@+id/lay_author_details"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/mainbg_color"/>
+</RelativeLayout>

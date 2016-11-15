@@ -154,6 +154,16 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    
+    <string name="course_name">Course Video Name</string>
+    <string name="history_course">History Of Course</string>
+    <string name="course_details">Details</string>
+
+    <string name="reviews_course">Reviews</string>
+    <string name="chat_course">Chat</string>
+    <string name="healthcall_course">Healthcall</string>
+    <string name="live_streaming_course">Livestreaming</string>
+
 
 
 </resources>
