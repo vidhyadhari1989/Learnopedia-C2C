@@ -1,14 +1,12 @@
 package com.c2c.learnopedia.fragment;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.Toast;
@@ -21,9 +19,7 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.c2c.learnopedia.activity.ListOfCoursesActivity;
 import com.c2c.learnopedia.model.Chapters;
-import com.c2c.learnopedia.model.Subject;
 import com.c2c.learnopedia.other.AppConstance;
 import com.c2c.learnopedia.other.GridViewAdapter;
 import com.c2c.learnopedia.other.UrlUtils;
@@ -48,7 +44,7 @@ public class ChaptersFragment extends Fragment  {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View subjectFragment = inflater.inflate(R.layout.fragment_Chapters, container, false);
+        View subjectFragment = inflater.inflate(R.layout.fragment_chapters, container, false);
         initView(subjectFragment);
         return subjectFragment;
     }
